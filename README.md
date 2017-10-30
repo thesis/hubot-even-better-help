@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/AlexandreServies/hubot-even-better-help.svg?branch=master)](https://travis-ci.org/AlexandreServies/hubot-even-better-help)
 [![npm version](https://badge.fury.io/js/hubot-even-better-help.svg)](https://badge.fury.io/js/hubot-even-better-help)
 
-### A more friendly help command.
+### A much more friendly help command.
 
 hubot-even-better-help provides a better help experience than the out-of-the-box hubot standard help.
 Command options are organized by the script in which they are found, which reduces noise when a user is trying
