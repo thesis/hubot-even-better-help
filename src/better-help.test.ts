@@ -43,16 +43,6 @@ describe('hubot help', () => {
     expect(room.messages[1][1]).contains('I can do a lot of things!')
     expect(room.messages[1][1]).contains('hubot help all')
   })
-
-  it('should return help message on catch all', async () => {
-
-    await wait(10) // short wait so hubot can process all the help files
-
-    await room.user.say('alice', 'hubot asdfqwera')
-
-    expect(room.messages.length).to.equal(2, '#messages')
-    expect(room.messages[1][1]).to.contain("Sorry, I didn't catch that.  Try `hubot help`")
-  })
 })
 
 function wait(milliseconds: number): Promise<void> {

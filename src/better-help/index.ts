@@ -79,32 +79,6 @@ export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher)
     sendReply("Sorry!  I couldn't find anything related to " + res.match[1])
   })
 
-  // ---------- Catch all which searches commands ------------- //
-  const nameRegex = robot.alias ?
-    new RegExp('^@?(?:' + robot.name + '|' + robot.alias + ') ', 'i') :     // /^@?(hubot|hal) /i
-    new RegExp('^@?' + robot.name + ' ', 'i')                               // /^@?hubot /i
-
-  robot.catchAll((res) => {
-    // strip the robot's name before doing the search
-    const msg = (res.envelope.message as CatchAllMessage).message as TextMessage
-    if (!nameRegex.test(msg.text)) {
-      // they didn't say the robots name
-      return
-    }
-    const txtMsg = msg.text.replace(nameRegex, '')
-
-    // run a search on the unknown command
-    let matches = searcher.executeSearch(txtMsg)
-    if (matches.length > 0) {
-      matches = matches.slice(0, 5)
-      matches = renameHelpCommands(matches, robot.name)
-      matches = matches.map((m) => '* ' + m)
-      matches.splice(0, 0, "Sorry, I didn't catch that.  Try one of these?")
-      res.reply(matches.join('\n'))
-    } else {
-      res.reply(`Sorry, I didn't catch that.  Try \`${robot.name} help\``)
-    }
-  })
 }
 
 export interface IScriptsMap {

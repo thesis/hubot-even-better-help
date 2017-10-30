@@ -66,15 +66,6 @@ hubot> bob: Get a meme from http://memecaptain.com/
 
 ```
 
-If the user messes up a command then the help module tries to figure out what they meant:
-
-```
-bob  > hubot brace your self for awesome help!
-hubot> bob: Sorry, I didn't catch that.  Try one of these?
-* hubot Brace yourself <text> - Meme: Ned Stark braces for <text>
-
-```
-
 The module also responds to mentions or greetings in order to introduce itself, so that new users can discover hubot
 and learn what it can do
 
