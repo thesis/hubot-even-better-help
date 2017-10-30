@@ -1,7 +1,5 @@
 # hubot-even-better-help
 
-[![Join the chat at https://gitter.im/AlexandreServies/hubot-even-better-help](https://badges.gitter.im/AlexandreServies/hubot-even-better-help.svg)](https://gitter.im/AlexandreServies/hubot-even-better-help?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Build Status](https://travis-ci.org/AlexandreServies/hubot-even-better-help.svg?branch=master)](https://travis-ci.org/AlexandreServies/hubot-even-better-help)
 [![npm version](https://badge.fury.io/js/hubot-even-better-help.svg)](https://badge.fury.io/js/hubot-even-better-help)
 
