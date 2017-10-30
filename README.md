@@ -1,15 +1,13 @@
-# hubot-better-help
+# hubot-even-better-help
 
-[![Join the chat at https://gitter.im/CruAlbania/hubot-better-help](https://badges.gitter.im/CruAlbania/hubot-better-help.svg)](https://gitter.im/CruAlbania/hubot-better-help?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/AlexandreServies/hubot-even-better-help](https://badges.gitter.im/AlexandreServies/hubot-even-better-help.svg)](https://gitter.im/AlexandreServies/hubot-even-better-help?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Build Status](https://travis-ci.org/CruAlbania/hubot-better-help.svg?branch=master)](https://travis-ci.org/CruAlbania/hubot-better-help)
-[![npm version](https://badge.fury.io/js/hubot-better-help.svg)](https://badge.fury.io/js/hubot-better-help)
-[![npm](https://img.shields.io/npm/dm/hubot-better-help.svg)](https://www.npmjs.com/package/hubot-better-help)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/AlexandreServies/hubot-even-better-help.svg?branch=master)](https://travis-ci.org/AlexandreServies/hubot-even-better-help)
+[![npm version](https://badge.fury.io/js/hubot-even-better-help.svg)](https://badge.fury.io/js/hubot-even-better-help)
 
 ### A more friendly help command.
 
-hubot-better-help provides a better help experience than the out-of-the-box hubot standard help.
+hubot-even-better-help provides a better help experience than the out-of-the-box hubot standard help.
 Command options are organized by the script in which they are found, which reduces noise when a user is trying
 to figure out what hubot can do.
 
@@ -81,8 +79,8 @@ sally> hi hubot
 hubot> Hiya!  Want to ask me a question?  Just type `hubot help`
 ```
 
-hubot-better-help accomplishes all this by re-implementing the parsing logic of Hubot.  Normally Hubot parses
-the header files of scripts and then combines all the commands in one array.  hubot-better-help instead maintains
+hubot-even-better-help accomplishes all this by re-implementing the parsing logic of Hubot.  Normally Hubot parses
+the header files of scripts and then combines all the commands in one array.  hubot-even-better-help instead maintains
 an associative array of module names to commands, and combines them on the fly.  This allows to to reduce a lot of
 noise when you start including a significant number of modules, or those modules like "hubot-memes" which have a lot
 of commands.
@@ -91,10 +89,10 @@ of commands.
 
 In hubot project repo, run:
 
-`npm install hubot-better-help --save`
+`npm install hubot-even-better-help --save`
 
-Then add **hubot-better-help** to your `external-scripts.json`:
+Then add **hubot-even-better-help** to your `external-scripts.json`:
 
 ```json
-["hubot-better-help"]
+["hubot-even-better-help"]
 ```

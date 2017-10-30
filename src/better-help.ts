@@ -12,7 +12,7 @@
 //
 // Notes:
 //   This module is written with typescript, and all javascript files are generated.  If you want to make changes
-//   please clone the source from https://github.com/CruAlbania/hubot-better-help
+//   please clone the source from https://github.com/AlexandreServies/hubot-even-better-help
 //
 // Author:
 //   gburgett
