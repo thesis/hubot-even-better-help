@@ -5,6 +5,8 @@ import { Searcher } from './search'
 export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher) {
   // -------------- RESPOND WITH HELP FROM HUBOT SCRIPTS ---------------------- //
 
+  const robotName = robot.alias || robot.name
+
   robot.respond(/help(?:\s+(.*))?/i, (res) => {
     const replyInPrivate = process.env.HUBOT_HELP_REPLY_IN_PRIVATE
     const sendReply = (replyStr) => {
@@ -34,10 +36,10 @@ export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher)
         }
 
         let desc = h.description.length > 0 ? h.description[0] : ''
-        desc = desc.replace('hubot', robot.name)
-        reply.push(`* ${robot.name} help ${k} - ${desc}  `)
+        desc = desc.replace('hubot', robotName)
+        reply.push(`* ${robotName} help ${k} - ${desc}  `)
       }
-      reply.push('', '\nOr you can see all commands by typing `' + robot.name + ' help all`.')
+      reply.push('', '\nOr you can see all commands by typing `' + robotName + ' help all`.')
       sendReply(reply.join('\n'))
       return
     }
@@ -47,7 +49,7 @@ export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher)
 
     // hubot help all
     if (query === 'all') {
-      const cmds = renameHelpCommands(allCommands, robot.name)
+      const cmds = renameHelpCommands(allCommands, robotName)
       const reply = "Here's a list of all the things I can do:  \n\n" +
                       cmds.map((c) => '* ' + c).join('  \n')
       sendReply(reply)
@@ -57,9 +59,9 @@ export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher)
     // hubot help {{ script name }}
     const selectedHelp = scripts[query] as Help
     if (selectedHelp && selectedHelp.commands.length > 0) {
-      const cmds = renameHelpCommands(selectedHelp.commands.sort(), robot.name)
+      const cmds = renameHelpCommands(selectedHelp.commands.sort(), robotName)
       let desc = selectedHelp.description.length > 0 ? selectedHelp.description[0] : ''
-      desc = desc.replace('hubot', robot.name)
+      desc = desc.replace('hubot', robotName)
       const reply = desc + '  \n\n' +
                       cmds.map((c) => '* ' + c).join('  \n')
       sendReply(reply)
@@ -69,7 +71,7 @@ export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher)
     // hubot help {{ search query }}
     const matches = searcher.executeSearch(res.match[1])
     if (matches.length > 0) {
-      const cmds = renameHelpCommands(matches, robot.name)
+      const cmds = renameHelpCommands(matches, robotName)
       const reply = `Here's what I can do related to "${res.match[1]}":  \n\n` +
                       cmds.map((c) => '* ' + c).join('  \n')
       sendReply(reply)
