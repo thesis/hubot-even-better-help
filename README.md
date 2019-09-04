@@ -27,6 +27,28 @@ Or you can see all commands by typing `hubot help all`.
 
 ```
 
+If you have a robot alias set, the alias will display instead of the robot name.
+
+```
+bob  > \help
+hubot> bob: I can do a lot of things!  Which would you like to know more about? You can say:  
+
+* \help hangouts - Create hangouts with Hubot.  
+* \help meme - Get a meme from http://memecaptain.com/  
+* \help pugme - Pugme is the most important thing in life  
+* \help maps - Interacts with the Google Maps API.  
+* \help rules - Make sure that hubot knows the rules.  
+* \help rss-reader - Hubot RSS Reader  
+* \help youtube - YouTube video search  
+* \help shipit - Rodent Motivation  
+
+
+Or you can see all commands by typing `\help all`.
+
+```
+
+
+
 The user can dive in deeper by specifying the name of the script or module in which the commands are defined:
 
 ```
@@ -74,7 +96,7 @@ Try it now by typing this:
 `hubot help`
 
 sally> hi hubot
-hubot> Hiya!  Want to ask me a question?  Just type `hubot help`
+hubot> Hiya!  Want to ask me a question?  Just type `hubot help or \help`
 ```
 
 hubot-even-better-help accomplishes all this by re-implementing the parsing logic of Hubot.  Normally Hubot parses
