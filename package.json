@@ -16,7 +16,7 @@
     "url": "https://github.com/AlexandreServies/hubot-even-better-help/issues"
   },
   "dependencies": {
-    "coffee-script": "~1.6",
+    "coffeescript": "~2.4",
     "stopwords": "^0.0.5"
   },
   "devDependencies": {
@@ -40,6 +40,6 @@
   "main": "index.coffee",
   "scripts": {
     "lint": "tslint 'src/**/*.ts?(x)' -e '**/*.d.ts'",
-    "test": "mocha --compilers coffee:coffee-script,ts:ts-node/register --recursive 'src/**/*.test.ts'"
+    "test": "mocha --compilers coffee:coffeescript,ts:ts-node/register --recursive 'src/**/*.test.ts'"
   }
 }
