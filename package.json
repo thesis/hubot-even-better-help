@@ -16,7 +16,7 @@
     "url": "https://github.com/AlexandreServies/hubot-even-better-help/issues"
   },
   "dependencies": {
-    "coffee-script": "~1.6",
+    "coffeescript": "~2.4",
     "stopwords": "^0.0.5"
   },
   "devDependencies": {
