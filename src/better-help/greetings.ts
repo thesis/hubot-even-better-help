@@ -4,7 +4,7 @@
 import { Robot } from '../hubot'
 
 module.exports = (robot: Robot) => {
-  const robotName = robot.alias | robot.name
+  const robotName = robot.alias || robot.name
 
   robot.hear(new RegExp(`ask ${robot.name}`, 'i'),  (res) => {
     let msg = `Hi, I'm ${robot.name}.  Nice to meet you!

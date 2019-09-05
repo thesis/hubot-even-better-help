@@ -5,7 +5,7 @@ import { Searcher } from './search'
 export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher) {
   // -------------- RESPOND WITH HELP FROM HUBOT SCRIPTS ---------------------- //
 
-  const robotName = robot.alias | robot.name
+  const robotName = robot.alias || robot.name
 
   robot.respond(/help(?:\s+(.*))?/i, (res) => {
     const replyInPrivate = process.env.HUBOT_HELP_REPLY_IN_PRIVATE
