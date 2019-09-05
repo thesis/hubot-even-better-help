@@ -5,17 +5,19 @@ var del = require('del')
 
 const tsproj = ts.createProject('tsconfig.json')
 
-gulp.task('build', () => {
+function build() {
   return gulp.src(['src/**/*.ts', '!src/**/*.d.ts', '!src/**/*.test.ts'])
       .pipe(tsproj())
       .pipe(rename({
         extname: ".js"
       }))
       .pipe(gulp.dest('scripts'))
+}
+
+exports.build = build
+exports.watch = gulp.series(build, function () {
+  return gulp.watch(['src/**/*.ts', '!src/**/*.d.ts', '!src/**/*.test.ts'], ['build'])
 })
-
-gulp.task('watch', ['build'], () => 
-  gulp.watch(['src/**/*.ts', '!src/**/*.d.ts', '!src/**/*.test.ts'], ['build'])
-)
-
-gulp.task('clean', () => del('scripts/**/*'))
+exports.clean = function() {
+  del('scripts/**/*')
+}
