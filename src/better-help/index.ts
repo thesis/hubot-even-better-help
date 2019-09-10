@@ -5,7 +5,7 @@ import { Searcher } from './search'
 export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher) {
   // -------------- RESPOND WITH HELP FROM HUBOT SCRIPTS ---------------------- //
 
-  const robotName = robot.alias || robot.name
+  const robotName = robot.alias || (robot.name + ' ')
 
   robot.respond(/help(?:\s+(.*))?/i, (res) => {
     const replyInPrivate = process.env.HUBOT_HELP_REPLY_IN_PRIVATE
@@ -37,9 +37,9 @@ export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher)
 
         let desc = h.description.length > 0 ? h.description[0] : ''
         desc = desc.replace('hubot', robotName)
-        reply.push(`* ${robotName} help ${k} - ${desc}  `)
+        reply.push(`* ${robotName}help ${k} - ${desc}  `)
       }
-      reply.push('', '\nOr you can see all commands by typing `' + robotName + ' help all`.')
+      reply.push('', '\nOr you can see all commands by typing `' + robotName + 'help all`.')
       sendReply(reply.join('\n'))
       return
     }
@@ -158,5 +158,5 @@ function getAllCommands(scripts: IScriptsMap): string[] {
  */
 function renameHelpCommands(commands: string[], robotName: string) {
   return commands.map((command) =>
-      command.replace(/^hubot/i, robotName))
+      command.replace(/^hubot\s?/i, robotName))
 }
