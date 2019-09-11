@@ -1,7 +1,22 @@
 # hubot-even-better-help
 
-[![Build Status](https://travis-ci.org/AlexandreServies/hubot-even-better-help.svg?branch=master)](https://travis-ci.org/AlexandreServies/hubot-even-better-help)
-[![npm version](https://badge.fury.io/js/hubot-even-better-help.svg)](https://badge.fury.io/js/hubot-even-better-help)
+## How to build the unpublished fork of this package
+
+This fork bypasses the travis CI build. To use a local clone of this package,
+with changes:
+- Delete the existing `scripts/` directory
+- Run `npm install`
+- Run `./node_modules/.bin/gulp build`
+- Use the `"file:"` syntax in the `package.json` of the application using these changes 
+(eg `"hubot-even-better-help": "file:<your local file path>/hubot-even-better-help",`)
+
+To use these changes from a non-local repo (eg GitHub):
+- Re-run `./node_modules/.bin/gulp build` after your changes are complete
+- Commit changes to the files in the `scripts/` directory
+- Push to your remote
+- Use the "github: " syntax in the `package.json` of the application using these changes 
+(eg `"hubot-even-better-help": "github:<your GitHub org name>/hubot-even-better-help#<your commit sha>",`)
+
 
 ### A much more friendly help command.
 
