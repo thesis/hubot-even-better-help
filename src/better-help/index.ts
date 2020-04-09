@@ -37,7 +37,8 @@ export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher)
         }
 
         let desc = h.description.length > 0 ? h.description[0] : ''
-        desc = desc.replace('hubot', robotName)
+        let descRobotName = robot.name || robotName
+        desc = desc.replace('hubot', descRobotName)
         reply.push(`* ${robotName}help ${k} - ${desc}  `)
       }
       reply.push('', '\nOr you can see all commands by typing `' + robotName + 'help all`.')
@@ -62,7 +63,8 @@ export function InitHelp(robot: Robot, scripts: IScriptsMap, searcher: Searcher)
     if (selectedHelp && selectedHelp.commands.length > 0) {
       const cmds = renameHelpCommands(selectedHelp.commands.sort(), robotName)
       let desc = selectedHelp.description.length > 0 ? selectedHelp.description[0] : ''
-      desc = desc.replace('hubot', robotName)
+      let descRobotName = robot.name || robotName
+      desc = desc.replace('hubot', descRobotName)
       const reply = desc + '  \n\n' +
                       cmds.map((c) => '* ' + c).join('  \n')
       sendReply(reply)
