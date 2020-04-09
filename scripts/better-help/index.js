@@ -1,7 +1,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function InitHelp(robot, scripts, searcher) {
     // -------------- RESPOND WITH HELP FROM HUBOT SCRIPTS ---------------------- //
-    const robotName = robot.alias || (robot.name + ' ');
+    const robotName = robot.alias || robot.name;
     robot.respond(/help(?:\s+(.*))?/i, (res) => {
         const replyInPrivate = process.env.HUBOT_HELP_REPLY_IN_PRIVATE;
         const sendReply = (replyStr) => {
@@ -29,7 +29,8 @@ function InitHelp(robot, scripts, searcher) {
                     continue;
                 }
                 let desc = h.description.length > 0 ? h.description[0] : '';
-                desc = desc.replace('hubot', robotName);
+                let descRobotName = robot.name || robotName;
+                desc = desc.replace('hubot', descRobotName);
                 reply.push(`* ${robotName}help ${k} - ${desc}  `);
             }
             reply.push('', '\nOr you can see all commands by typing `' + robotName + 'help all`.');
@@ -51,7 +52,8 @@ function InitHelp(robot, scripts, searcher) {
         if (selectedHelp && selectedHelp.commands.length > 0) {
             const cmds = renameHelpCommands(selectedHelp.commands.sort(), robotName);
             let desc = selectedHelp.description.length > 0 ? selectedHelp.description[0] : '';
-            desc = desc.replace('hubot', robotName);
+            let descRobotName = robot.name || robotName;
+            desc = desc.replace('hubot', descRobotName);
             const reply = desc + '  \n\n' +
                 cmds.map((c) => '* ' + c).join('  \n');
             sendReply(reply);
@@ -131,5 +133,6 @@ function getAllCommands(scripts) {
  * Renames the given help commands with the robot name
  */
 function renameHelpCommands(commands, robotName) {
-    return commands.map((command) => command.replace(/^hubot\s?/i, robotName));
+    let robotNamePattern = (robotName.length === 1) ? /^hubot\s?/i : /^hubot/i;
+    return commands.map((command) => command.replace(robotNamePattern, robotName));
 }
