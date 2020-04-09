@@ -1,7 +1,22 @@
 # hubot-even-better-help
 
-[![Build Status](https://travis-ci.org/AlexandreServies/hubot-even-better-help.svg?branch=master)](https://travis-ci.org/AlexandreServies/hubot-even-better-help)
-[![npm version](https://badge.fury.io/js/hubot-even-better-help.svg)](https://badge.fury.io/js/hubot-even-better-help)
+## How to build the unpublished fork of this package
+
+This fork bypasses the travis CI build. To use a local clone of this package,
+with changes:
+- Delete the existing `scripts/` directory
+- Run `npm install`
+- Run `./node_modules/.bin/gulp build`
+- Use the `"file:"` syntax in the `package.json` of the application using these changes 
+(eg `"hubot-even-better-help": "file:<your local file path>/hubot-even-better-help",`)
+
+To use these changes from a non-local repo (eg GitHub):
+- Re-run `./node_modules/.bin/gulp build` after your changes are complete
+- Commit changes to the files in the `scripts/` directory
+- Push to your remote
+- Use the "github: " syntax in the `package.json` of the application using these changes 
+(eg `"hubot-even-better-help": "github:<your GitHub org name>/hubot-even-better-help#<your commit sha>",`)
+
 
 ### A much more friendly help command.
 
@@ -26,6 +41,28 @@ hubot> bob: I can do a lot of things!  Which would you like to know more about? 
 Or you can see all commands by typing `hubot help all`.
 
 ```
+
+If you have a robot alias set, the alias will display instead of the robot name.
+
+```
+bob  > \help
+hubot> bob: I can do a lot of things!  Which would you like to know more about? You can say:  
+
+* \help hangouts - Create hangouts with Hubot.  
+* \help meme - Get a meme from http://memecaptain.com/  
+* \help pugme - Pugme is the most important thing in life  
+* \help maps - Interacts with the Google Maps API.  
+* \help rules - Make sure that hubot knows the rules.  
+* \help rss-reader - Hubot RSS Reader  
+* \help youtube - YouTube video search  
+* \help shipit - Rodent Motivation  
+
+
+Or you can see all commands by typing `\help all`.
+
+```
+
+
 
 The user can dive in deeper by specifying the name of the script or module in which the commands are defined:
 
@@ -74,7 +111,7 @@ Try it now by typing this:
 `hubot help`
 
 sally> hi hubot
-hubot> Hiya!  Want to ask me a question?  Just type `hubot help`
+hubot> Hiya!  Want to ask me a question?  Just type `hubot help or \help`
 ```
 
 hubot-even-better-help accomplishes all this by re-implementing the parsing logic of Hubot.  Normally Hubot parses
